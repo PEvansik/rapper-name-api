@@ -21,37 +21,22 @@ const rappers = {
         'birthName': 'Didnj Junir',
         'birthLoacation': 'Illinois, USA'
     },
-    'super': {
+    'ukn': {
         'age': 25,
-        'birthName': 'Bilarf refi',
-        'birthLoacation': 'Collorado, USA'
+        'birthName': 'arbit',
+        'birthLoacation': 'Tulum'
     }
 }
 
-
-// visit the main route
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html')
 })
 
 app.get('/api/:rapperName/:rapperAge?', (req, res) => {
 
-    // '/api/:rapa/:gen?'
-    // let data = {
-    //     'query': {
-    //         'rapa': req.params.rapa.toLowerCase() || 'all,
-    //         'gen': req.params.gen.toLowerCase() || 12
-    //     }
-    // }
-
-    // grab the route parameter
     const rapperName = req.params.rapperName.toLowerCase(); 
 
-
-
     (rappers[rapperName]) ?  res.json(rappers[rapperName]) : res.json(rappers['super']) ;
-
-
 })
 
 app.listen(PORT, () => {
